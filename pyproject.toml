@@ -7,7 +7,7 @@ name = "googer"
 description = "A powerful, type-safe Google Search library for Python."
 readme = "README.md"
 requires-python = ">=3.10"
-license = "MIT"
+license = "Apache-2.0"
 keywords = ["python", "google", "search", "web-scraping", "search-engine"]
 authors = [
     {name = "googer contributors"}

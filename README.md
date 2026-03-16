@@ -167,4 +167,4 @@ googer/
 
 ## License
 
-MIT License. See [LICENSE.md](LICENSE.md) for details.
+Apache License 2.0. See [LICENSE.md](LICENSE.md) for details.
