@@ -51,10 +51,7 @@ impl HttpClient {
         }
 
         let agent = builder.build();
-        Ok(Self {
-            agent,
-            max_retries,
-        })
+        Ok(Self { agent, max_retries })
     }
 
     /// Perform a GET request with retries.
@@ -74,14 +71,20 @@ impl HttpClient {
         };
 
         for attempt in 1..=self.max_retries {
-            debug!("GET {} (attempt {}/{})", full_url, attempt, self.max_retries);
+            debug!(
+                "GET {} (attempt {}/{})",
+                full_url, attempt, self.max_retries
+            );
 
             let ua = get_gsa_user_agent();
             let result = self
                 .agent
                 .get(&full_url)
                 .set("User-Agent", &ua)
-                .set("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+                .set(
+                    "Accept",
+                    "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                )
                 .set("Accept-Language", "en-US,en;q=0.5")
                 .call();
 
